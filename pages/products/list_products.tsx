@@ -1,7 +1,9 @@
+import Table from "@/components/Table/Table";
+
 export default function ListProducts() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="listProductWrapper">
+      <Table />
+    </div>
+  );
 }

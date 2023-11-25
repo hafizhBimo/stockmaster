@@ -1,0 +1,10 @@
+.buttonWrapper{
+    border: none;
+    background-color: unset;
+    margin: 2px;
+}
+
+.buttonWrapper:hover{
+    cursor:pointer
+}
+

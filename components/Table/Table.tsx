@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import Button from "../Button/Button";
 import styles from "./Table.module.css";
@@ -19,8 +20,10 @@ interface Supplier {
 }
 
 const Table = () => {
+  const router = useRouter();
   const [productList, setProductList] = useState<Product[]>([]);
   const [supplierList, setSupplierList] = useState<Supplier[]>([]);
+
   useEffect(() => {
     // Fetch product list from the API
     fetch("http://localhost:3000/api/products/list")
@@ -64,6 +67,10 @@ const Table = () => {
     }
   };
 
+  const handleEdit = (productId: number) => {
+    router.push(`http://localhost:3000/products/edit?id=${productId}`);
+  };
+
   const getSupplierName = (supplierId: number): string => {
     const supplier = supplierList.find((s) => s.id_suplier === supplierId);
     return supplier ? supplier.nama_suplier : '';
@@ -94,7 +101,7 @@ const Table = () => {
               <td>{product.stok}</td>
               <td>{getSupplierName(product.suplier_id)}</td>
               <td>
-                <Button type="edit" />
+                <Button type="edit" onClick={() => handleEdit(product.id)}/>
                 <Button type="delete" onClick={() => handleDelete(product.id)}/>
               </td>
             </tr>

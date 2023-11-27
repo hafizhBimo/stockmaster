@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'
+import { IoMdArrowBack } from "react-icons/io";
 
 interface Supplier {
   id_suplier: number;
@@ -8,6 +10,7 @@ interface Supplier {
 }
 
 const AddProduct = () => {
+    const router = useRouter()
     const [formData, setFormData] = useState({
         nama: '',
         deskripsi: '',
@@ -72,7 +75,10 @@ const AddProduct = () => {
       };
     
   return (
-    <div>
+    <div className='container'>
+            <button type="button" onClick={() => router.back()}>
+            <IoMdArrowBack />
+    </button>
       <h1>Add Product</h1>
       <form onSubmit={handleSubmit}>
       <label>
@@ -110,7 +116,6 @@ const AddProduct = () => {
             ))}
           </select>
         </label>
-        {/* ... other form fields ... */}
         <button type="submit">Add Product</button>
       </form>
     </div>

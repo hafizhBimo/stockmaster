@@ -73,9 +73,8 @@ const Table = () => {
 
   const getSupplierName = (supplierId: number): string => {
     const supplier = supplierList.find((s) => s.id_suplier === supplierId);
-    return supplier ? supplier.nama_suplier : '';
+    return supplier ? supplier.nama_suplier : "";
   };
-  
 
   return (
     <div>
@@ -94,15 +93,24 @@ const Table = () => {
         <tbody>
           {productList.map((product) => (
             <tr key={product.id}>
-              <td>{product.foto}</td>
+              <td>
+                {" "}
+                <img
+                  src={`/uploads/products/${product.foto}`}
+                  alt={product.nama}
+                />
+              </td>
               <td>{product.nama}</td>
               <td>{product.deskripsi}</td>
               <td>{product.harga}</td>
               <td>{product.stok}</td>
               <td>{getSupplierName(product.suplier_id)}</td>
               <td>
-                <Button type="edit" onClick={() => handleEdit(product.id)}/>
-                <Button type="delete" onClick={() => handleDelete(product.id)}/>
+                <Button type="edit" onClick={() => handleEdit(product.id)} />
+                <Button
+                  type="delete"
+                  onClick={() => handleDelete(product.id)}
+                />
               </td>
             </tr>
           ))}

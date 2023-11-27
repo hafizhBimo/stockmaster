@@ -73,8 +73,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;
   const { nama, deskripsi, harga, stok, suplier_id } = fields || {};
 
-  const filename: string =
-    files?.[0]?.[1]?.newFilename || "default_filename.jpg";
+  const filename: string = files ? (files as any).foto[0].newFilename : "default_filename.jpg";
 
   const productId = typeof id === "string" ? parseInt(id, 10) : null;
 

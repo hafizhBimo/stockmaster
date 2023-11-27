@@ -26,29 +26,6 @@ const EditProduct = () => {
   const [supplierList, setSupplierList] = useState<Supplier[]>([]);
 
   useEffect(() => {
-    // Fetch product details based on the ID
-    // if (id) {
-    //   fetch(`http://localhost:3000/api/products/details?id=${id}`)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       if (data.data) {
-    //         // Set default values for the input fields
-    //         setFormData({
-    //           nama: data.data.nama,
-    //           deskripsi: data.data.deskripsi,
-    //           harga: data.data.harga.toString(),
-    //           stok: data.data.stok.toString(),
-    //           suplier_id: data.data.suplier_id.toString(),
-    //           foto: undefined,
-    //         });
-    //       }
-    //     })
-    //     .catch((error) =>
-    //       console.error("Error fetching product details:", error)
-    //     );
-    // }
-
-    // Fetch supplier list
     fetch("http://localhost:3000/api/suppliers")
       .then((response) => response.json())
       .then((data) => {

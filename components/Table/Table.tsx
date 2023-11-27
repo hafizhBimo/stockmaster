@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import Button from "../Button/Button";
 import styles from "./Table.module.css";
+import rupiah from "@/src/helper/rupiah";
 
 interface Product {
   id: number;
@@ -98,11 +99,12 @@ const Table = () => {
                 <img
                   src={`/uploads/products/${product.foto}`}
                   alt={product.nama}
+                  width={150}
                 />
               </td>
               <td>{product.nama}</td>
               <td>{product.deskripsi}</td>
-              <td>{product.harga}</td>
+              <td>{rupiah(product.harga)}</td>
               <td>{product.stok}</td>
               <td>{getSupplierName(product.suplier_id)}</td>
               <td>

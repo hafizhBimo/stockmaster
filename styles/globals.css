@@ -56,5 +56,8 @@ select {
   box-sizing: border-box;
 }
 
-
+.buttonWrapper {
+  margin: 10px;
+  margin-right: 900px;
+}
 

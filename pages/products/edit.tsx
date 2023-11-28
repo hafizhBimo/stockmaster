@@ -65,6 +65,14 @@ const EditProduct = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  
+    // Check for empty values
+    const isAnyFieldEmpty = Object.values(formData).some((value) => value === '');
+    if (isAnyFieldEmpty) {
+      alert("Please fill in all fields");
+      return;
+    }
+  
     try {
       const form = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
@@ -83,7 +91,7 @@ const EditProduct = () => {
         router.back();
       } else {
         alert("Failed to update product");
-        console.log(response)
+        console.log(response);
       }
     } catch (error) {
       console.error("Error:", error);

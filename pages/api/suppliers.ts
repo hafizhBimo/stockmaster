@@ -25,7 +25,7 @@ export default async function handler(
         [nama_suplier, alamat, email]
       );
       const lastId = result.lastID
-      const data = await db.get("SELECT * FROM suplier WHERE id = ?",lastId)
+      const data = await db.get("SELECT * FROM suplier WHERE id_suplier = ?",lastId)
       res
         .status(201)
         .json({ message: "new supplier successfully created", data});

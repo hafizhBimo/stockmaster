@@ -76,7 +76,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     if (isDuplicate) {
-      status = 400; // Bad Request
+      status = 400;
       resultBody = {
         status: "fail",
         message: "Product with the same name already exists",

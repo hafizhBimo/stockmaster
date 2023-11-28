@@ -51,7 +51,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { fields, files } = formData;
 
   if (files && files.length) {
-    /* Create directory for uploads */
+    
     const targetPath = path.join(process.cwd(), `public/uploads/products`);
     try {
       await fs.access(targetPath);
@@ -59,14 +59,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       await fs.mkdir(targetPath);
     }
 
-    /* Move uploaded files to directory */
+    
     for (const file of files) {
       const tempPath = file[1].filepath;
       await fs.rename(tempPath, path.join(targetPath));
     }
   }
 
-  /* Store data in SQLite database */
+  
   const db = new sqlite3.Database(
     "D:/hfzhb/Documents/code/project/stockmaster/recruitment-test/test.db"
   );

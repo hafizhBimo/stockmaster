@@ -66,7 +66,7 @@ const EditProduct = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    // Check for empty values
+    
     const isAnyFieldEmpty = Object.values(formData).some((value) => value === '');
     if (isAnyFieldEmpty) {
       alert("Please fill in all fields");
